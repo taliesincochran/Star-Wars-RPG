@@ -116,10 +116,10 @@ var game = {
 			if (game.flag === true) {
 				game.currentAttack = game.pc.attack + game.previousAttack;
 				game.previousAttack = game.currentAttack;
-				if(game.pc.health > 0) {
+				if(game.pc.health > 0 && game.npc.health > 0) {
 					game.npc.health = game.npc.health - game.currentAttack;
 				}
-				if (game.npc.health > 0) {
+				if (game.npc.health > 0 && game.npc.health > 0) {
 					game.pc.health = game.pc.health - game.npc.counter;
 				}
 				$("#gameText").html("You attacked " + game.npc.name + "for " + game.currentAttack + "damage. <br>" + game.npc.name + "attacks you back for " + game.npc.counter + "damage.");
