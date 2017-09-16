@@ -118,17 +118,15 @@ var game = {
 				game.previousAttack = game.currentAttack;
 				if(game.pc.health > 0 && game.npc.health > 0) {
 					game.npc.health = game.npc.health - game.currentAttack;
-				}
-				if (game.npc.health > 0 && game.npc.health > 0) {
 					game.pc.health = game.pc.health - game.npc.counter;
+					$("#gameText").html("You attacked " + game.npc.name + "for " + game.currentAttack + "damage. <br>" + game.npc.name + "attacks you back for " + game.npc.counter + "damage.");
+					$(".sidiousLifeDis").text(game.sidious.health);
+					$(".lukeLifeDis").text(game.luke.health);
+					$(".maulLifeDis").text(game.maul.health);
+					$(".kenobiLifeDis").text(game.obiwan.health);
 				}
-				$("#gameText").html("You attacked " + game.npc.name + "for " + game.currentAttack + "damage. <br>" + game.npc.name + "attacks you back for " + game.npc.counter + "damage.");
-				$(".sidiousLifeDis").text(game.sidious.health);
-				$(".lukeLifeDis").text(game.luke.health);
-				$(".maulLifeDis").text(game.maul.health);
-				$(".kenobiLifeDis").text(game.obiwan.health);
 			}
-		});
+		
 		if (game.pc.health <= 0) {
 			game.flag = false
 			$("#restart").removeClass('hidden');
@@ -178,6 +176,7 @@ var game = {
 			game.flag = false;
 			$("#restart").removeClass("hidden");
 		}
+		});
 	},
 	'restart': function () {
 		$("#restart").on("click", function () {
