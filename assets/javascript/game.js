@@ -127,58 +127,57 @@ var game = {
 				$(".lukeLifeDis").text(game.luke.health);
 				$(".maulLifeDis").text(game.maul.health);
 				$(".kenobiLifeDis").text(game.obiwan.health);
-				if (game.pc.health <= 0) {
-					game.flag = false
-					$("#restart").removeClass('hidden');
-					$("#gameText").text("You've been defeated... GAME OVER!!!");
-				} else if (game.npc.health <= 0) {
-					if (game.npc === game.luke) {
-						$("#sky").addClass("hidden box1").removeClass("box4 alive");
-						game.liveCharacters.splice("game.luke",1);
-						$(".box3").addClass("alive");
-						game.flag = false;
-					} else if (game.npc === game.obiwan) {
-						$("#ken").addClass("hidden box1").removeClass("box4 alive");
-						game.liveCharacters.splice("game.obiwan",1);
-						$(".box3").addClass("alive");
-						game.flag = false;
-					} else if (game.npc === game.sidious) {
-						$("#sid").addClass("hidden box1").removeClass("box4 alive");
-						game.liveCharacters.splice("game.sidious",1);
-						$(".box3").addClass("alive");
-						game.flag = false;
-					} else if (game.npc === game.maul) {
-						$("#maul").addClass("hidden box1").removeClass("box4 alive");
-						game.liveCharacters.splice("game.maul",1);
-						$(".box3").addClass("alive");
-						game.flag = false;
-					}
-					$("#gameText").html("You have defeated " + game.npc.name + ", you can choose to fight another.");
-
-				}
-				if (game.liveCharacters.length === 2) {
-					$(".box3").detach().prependTo("#npcDefenderDis").removeClass("box3").addClass("box4");
-					if($(".box4").hasClass("lukeSky")) {
-						game.npc = game.luke;
-						game.flag = true;
-					} else if($(".box4").hasClass("obiwanKen")) {
-						game.npc = game.obiwan;
-						game.flag = true;
-					} else if($(".box4").hasClass("darthSid")) {
-						game.npc = game.sidious;
-						game.flag = true;
-					} else if($(".box4").hasClass("darthMaul")) {
-						game.npc = game.maul;
-						game.flag = true;
-					}  
-				}
-				if (game.liveCharacters.length === 1) {
-					$("#gameText").html("You Won!!! GAME OVER!!!");
-					game.flag = false;
-					$("#restart").removeClass("hidden");
-				}
 			}
 		});
+		if (game.pc.health <= 0) {
+			game.flag = false
+			$("#restart").removeClass('hidden');
+				$("#gameText").text("You've been defeated... GAME OVER!!!");
+		} else if (game.npc.health <= 0) {
+			if (game.npc === game.luke) {
+				$("#sky").addClass("hidden box1").removeClass("box4 alive");
+					game.liveCharacters.splice("game.luke",1);
+					$(".box3").addClass("alive");
+					game.flag = false;
+			} else if (game.npc === game.obiwan) {
+				$("#ken").addClass("hidden box1").removeClass("box4 alive");
+				game.liveCharacters.splice("game.obiwan",1);
+				$(".box3").addClass("alive");
+				game.flag = false;
+			} else if (game.npc === game.sidious) {
+				$("#sid").addClass("hidden box1").removeClass("box4 alive");
+				game.liveCharacters.splice("game.sidious",1);
+				$(".box3").addClass("alive");
+				game.flag = false;
+			} else if (game.npc === game.maul) {
+				$("#maul").addClass("hidden box1").removeClass("box4 alive");
+				game.liveCharacters.splice("game.maul",1);
+				$(".box3").addClass("alive");
+				game.flag = false;
+			}
+			$("#gameText").html("You have defeated " + game.npc.name + ", you can choose to fight another.");
+		}
+		if (game.liveCharacters.length === 2) {
+			$(".box3").detach().prependTo("#npcDefenderDis").removeClass("box3").addClass("box4");
+			if($(".box4").hasClass("lukeSky")) {
+				game.npc = game.luke;
+				game.flag = true;
+			} else if($(".box4").hasClass("obiwanKen")) {
+				game.npc = game.obiwan;
+				game.flag = true;
+			} else if($(".box4").hasClass("darthSid")) {
+				game.npc = game.sidious;
+				game.flag = true;
+			} else if($(".box4").hasClass("darthMaul")) {
+				game.npc = game.maul;
+				game.flag = true;
+			}  
+		}
+		if (game.liveCharacters.length === 1) {
+			$("#gameText").html("You Won!!! GAME OVER!!!");
+			game.flag = false;
+			$("#restart").removeClass("hidden");
+		}
 	},
 	'restart': function () {
 		$("#restart").on("click", function () {
