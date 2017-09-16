@@ -65,7 +65,7 @@ var game = {
 				game.flag = true;
 			} else if (game.clickCounter === 2 && $("#ken").hasClass("box3") && $("#ken").hasClass("alive")) {
 				$("#ken").detach().prependTo("#npcDefenderDis").removeClass("box3").addClass("box4");
-				game.npc = game.ken;
+				game.npc = game.obiwan;
 				game.clickCounter++;
 				game.flag = true;
 			}
