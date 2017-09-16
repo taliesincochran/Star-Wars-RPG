@@ -1,4 +1,5 @@
 var game = {
+	// characters
 	"obiwan": {
 		"name": "Obiwan Kenobi",
 		"health":120,
@@ -63,7 +64,7 @@ var game = {
 				game.clickCounter++;
 				game.flag = true;
 			} else if (game.clickCounter === 2 && $("#ken").hasClass("box3") && $("#ken").hasClass("alive")) {
-				$("#sky").detach().prependTo("#npcDefenderDis").removeClass("box3").addClass("box4");
+				$("#ken").detach().prependTo("#npcDefenderDis").removeClass("box3").addClass("box4");
 				game.npc = game.ken;
 				game.clickCounter++;
 				game.flag = true;
@@ -115,7 +116,9 @@ var game = {
 			if (game.flag === true) {
 				game.currentAttack = game.pc.attack + game.previousAttack;
 				game.previousAttack = game.currentAttack;
-				game.npc.health = game.npc.health - game.currentAttack;
+				if(game.pc.health > 0) {
+					game.npc.health = game.npc.health - game.currentAttack;
+				}
 				if (game.npc.health > 0) {
 					game.pc.health = game.pc.health - game.npc.counter;
 				}
@@ -130,22 +133,22 @@ var game = {
 					$("#gameText").text("You've been defeated... GAME OVER!!!");
 				} else if (game.npc.health <= 0) {
 					if (game.npc === game.luke) {
-						$("#sky").detach().removeClass('box4').removeClass("alive");
+						$("#sky").addClass("hidden box1").removeClass("box4 alive");
 						game.liveCharacters.splice("game.luke",1);
 						$(".box3").addClass("alive");
 						game.flag = false;
 					} else if (game.npc === game.obiwan) {
-						$("#ken").detach().removeClass('box4').removeClass("alive");
+						$("#ken").addClass("hidden box1").removeClass("box4 alive");
 						game.liveCharacters.splice("game.obiwan",1);
 						$(".box3").addClass("alive");
 						game.flag = false;
 					} else if (game.npc === game.sidious) {
-						$("#sid").detach().removeClass('box4').removeClass("alive");
+						$("#sid").addClass("hidden box1").removeClass("box4 alive");
 						game.liveCharacters.splice("game.sidious",1);
 						$(".box3").addClass("alive");
 						game.flag = false;
 					} else if (game.npc === game.maul) {
-						$("#maul").detach().removeClass('box4').removeClass("alive");
+						$("#maul").addClass("hidden box1").removeClass("box4 alive");
 						game.liveCharacters.splice("game.maul",1);
 						$(".box3").addClass("alive");
 						game.flag = false;
@@ -172,10 +175,37 @@ var game = {
 				if (game.liveCharacters.length === 1) {
 					$("#gameText").html("You Won!!! GAME OVER!!!");
 					game.flag = false;
+					$("#restart").removeClass("hidden");
 				}
 			}
 		});
 	},
+	'restart': function () {
+		$("#restart").on("click", function () {
+			game.obiwan.health = 120;
+			game.luke.health = 100;
+			game.sidious.health = 150;
+			game.maul.health = 180;
+			game.liveCharacters = ["game.luke", "game.obiwan", "game.sidious", "game.maul"];
+			game.previousAttack = 0;
+			game.currentAttack = 0;
+		 	game.pc = "";
+			game.npc ="";
+			game.clickCounter = 0;
+			flag = false;
+			$("#sky").detach().removeClass("alive box2 box3 box4 hidden").addClass("box1").appendTo("#characters");
+			$("#ken").detach().removeClass("alive box2 box3 box4 hidden").addClass("box1").appendTo("#characters");
+			$("#sid").detach().removeClass("alive box2 box3 box4 hidden").addClass("box1").appendTo("#characters");
+			$("#maul").detach().removeClass("alive box2 box3 box4 hidden").addClass("box1").appendTo("#characters");
+			$("#restart").addClass("hidden");
+			$(".sidiousLifeDis").text(game.sidious.health);
+			$(".lukeLifeDis").text(game.luke.health);
+			$(".maulLifeDis").text(game.maul.health);
+			$(".kenobiLifeDis").text(game.obiwan.health);
+		});
+
+	},
 }
 game.attacker();
 game.fight();
+game.restart();
