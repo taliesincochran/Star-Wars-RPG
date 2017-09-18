@@ -24,7 +24,6 @@ var game = {
 		"attack":3,
 		"counter":25,
 	},
-	"liveCharacters": ["game.luke", "game.obiwan", "game.sidious", "game.maul"],
 	"previousAttack": 0,
 	"currentAttack": 0,
 	"pc": "",
@@ -108,11 +107,7 @@ var game = {
 					$(".kenobiLifeDis").text(game.obiwan.health);
 				}
 			}
-		
-		if (game.pc.health <= 0) {			
-			$("#restart").removeClass('hidden');
-				$("#gameText").text("You've been defeated... GAME OVER!!!");
-		} else if (game.npc.health <= 0) {
+		var npcDeath = function () {
 			if (game.npc === game.luke) {
 				$("#sky").addClass("hidden box1").removeClass("box4");
 			} else if (game.npc === game.obiwan) {
@@ -122,11 +117,24 @@ var game = {
 			} else if (game.npc === game.maul) {
 				$("#maul").addClass("hidden box1").removeClass("box4");
 			}
-			game.winCounter++;
+			game.npc = undefined;
 			game.hasChoosenNPC = false;
+		};
+		var pcDeath = function () {
+			$("#restart").removeClass('hidden');
+			$("#gameText").text("You've been defeated... GAME OVER!!!");
+			game.hasChoosenNPC = false;
+		}
+		if (game.pc.health <= 0) {			
+			pcDeath();
+		} else if (game.pc.health <= 0 && game.npc.health <= 0) {
+			npcDeath();
+			pcDeath();
+		} else if (game.npc.health <= 0 && game.npc !== undefined) {
+			npcDeath();
+			game.winCounter++;			
 			$("#gameText").html("You have defeated " + game.npc.name + ", you can choose to fight another.");
 		}
-		
 		if (game.winCounter === 3) {
 			$("#gameText").html("You Won!!! GAME OVER!!!");
 			$("#restart").removeClass("hidden");
@@ -146,8 +154,8 @@ var game = {
 			game.hasChoosenNPC = false;
 			game.winCounter = 0;
 			$("#gameText").text("");
-			$("#sky").detach().removeClass("box2 box3 box4 hidden").addClass("box1").appendTo("#characters");
 			$("#ken").detach().removeClass("box2 box3 box4 hidden").addClass("box1").appendTo("#characters");
+			$("#sky").detach().removeClass("box2 box3 box4 hidden").addClass("box1").appendTo("#characters");
 			$("#sid").detach().removeClass("box2 box3 box4 hidden").addClass("box1").appendTo("#characters");
 			$("#maul").detach().removeClass("box2 box3 box4 hidden").addClass("box1").appendTo("#characters");
 			$("#restart").addClass("hidden");
