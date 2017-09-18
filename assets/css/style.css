@@ -4,18 +4,19 @@ p {
 	line-height: 11px;
 }
 body {
-	width: 774px;
-	height: 543px;
+	/*width: 774px;
+	height: 543px;*/
 	background-image: url(../images/background.png);
-	background-size: 776px 543px;
+	background-size: 100%;
 	background-repeat: no-repeat;
-	border-color: black;
+	/*border-color: black;
 	border-style: solid;
-	border-width: 1px;
+	border-width: 1px;*/
+
 }
 button {
 	width: 32px;
-	height: 12px;
+	height: 14px;
 	font-size: 6px;
 }
 .clearfix:after {

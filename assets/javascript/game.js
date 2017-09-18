@@ -4,24 +4,24 @@ var game = {
 		"name": "Obiwan Kenobi",
 		"health":120,
 		"attack":8,
-		"counter":12,
+		"counter":16,
 	},
 	"luke": {
 		"name": "Luke Skywalker",
 		"health":100,
-		"attack":12,
+		"attack":18,
 		"counter":5,
 	},
 	"sidious": {
 		"name": "Darth Sidious",
 		"health":150,
-		"attack":20,
+		"attack":5,
 		"counter":20,
 	},
 	"maul": {
 		"name": "Darth Maul",
 		"health":180,
-		"attack":15,
+		"attack":3,
 		"counter":25,
 	},
 	"liveCharacters": ["game.luke", "game.obiwan", "game.sidious", "game.maul"],
@@ -29,96 +29,78 @@ var game = {
 	"currentAttack": 0,
 	"pc": "",
 	"npc":"",
-	"clickCounter": 0,
+	"hasChoosenNPC":false,
+	"winCounter": 0,
 	"attacker": function() {		
 			//character selection
 		$("#sky").click(function() {
-			if (game.clickCounter === 0) {
+			if ($("#sky").hasClass("box1")) {
 				$("#sky").detach().prependTo("#pcDis").removeClass("box1").addClass("box2");
 				$(".box1").siblings().detach().prependTo("#npcDis").removeClass("box1").addClass("box3");
 				game.pc = game.luke;
 				game.clickCounter++;
-				game.flag = false;
-			}else if (game.clickCounter === 1 && $("#sky").hasClass("box3")) {
+			} else if ($("#sky").hasClass("box3") && game.hasChoosenNPC === false) {
 				$("#sky").detach().prependTo("#npcDefenderDis").removeClass("box3").addClass("box4");
 				game.npc = game.luke;
 				game.clickCounter++;
-				game.flag = true;
-			} else if (game.clickCounter === 2 && $("#sky").hasClass("box3") && $("#sky").hasClass("alive")) {
-				$("#sky").detach().prependTo("#npcDefenderDis").removeClass("box3").addClass("box4");
-				game.npc = game.luke;
-				game.clickCounter++;
-				game.flag = true;
+				game.hasChoosenNPC = true;
+				$("#gameText").text("");
 			}
 		});
 		$("#ken").click(function() {
-			if (game.clickCounter === 0) {
+			if ($("#ken").hasClass("box1")) {
 				$("#ken").detach().prependTo("#pcDis").removeClass("box1").addClass("box2");
 				$(".box1").siblings().detach().prependTo("#npcDis").removeClass("box1").addClass("box3");
 				game.pc = game.obiwan;
 				game.clickCounter++;
-				game.flag = false;
-			} else if (game.clickCounter === 1 && $("#ken").hasClass("box3")) {
+			} else if ($("#ken").hasClass("box3") && game.hasChoosenNPC === false) {
 				$("#ken").detach().prependTo("#npcDefenderDis").removeClass("box3").addClass("box4");
 				game.npc = game.obiwan;
 				game.clickCounter++;
-				game.flag = true;
-			} else if (game.clickCounter === 2 && $("#ken").hasClass("box3") && $("#ken").hasClass("alive")) {
-				$("#ken").detach().prependTo("#npcDefenderDis").removeClass("box3").addClass("box4");
-				game.npc = game.obiwan;
-				game.clickCounter++;
-				game.flag = true;
+				game.hasChoosenNPC = true;
+				$("#gameText").text("");
 			}
 		});
-		$("#sid").click(function() {
-			
-			if (game.clickCounter === 0) {
+		$("#sid").click(function() {			
+			if ($("#sid").hasClass("box1")) {
 				$("#sid").detach().prependTo("#pcDis").removeClass("box1").addClass("box2");
 				$(".box1").siblings().detach().prependTo("#npcDis").removeClass("box1").addClass("box3");
 				game.pc = game.sidious;
 				game.clickCounter++;
-				game.flag = false;
-			} else if (game.clickCounter === 1 && $("#sid").hasClass("box3")) {
+			} else if ($("#sid").hasClass("box3") && game.hasChoosenNPC === false) {
 				$("#sid").detach().prependTo("#npcDefenderDis").removeClass("box3").addClass("box4");
 				game.npc = game.sidious;
 				game.clickCounter++;
-				game.flag = true;
-			} else if (game.clickCounter === 2 && $("#sid").hasClass("box3") && $("#sid").hasClass("alive")) {
-				$("#sid").detach().prependTo("#npcDefenderDis").removeClass("box3").addClass("box4");
-				game.npc = game.sidious;
-				game.clickCounter++;
-				game.flag = true
-			} 
+				game.hasChoosenNPC = true;
+				$("#gameText").text("");
+			}
 		});
 		$("#maul").click(function() {
-			if (game.clickCounter === 0) {
+			if ($("#maul").hasClass("box1")) {
 				$("#maul").detach().prependTo("#pcDis").removeClass("box1").addClass("box2");
 				$(".box1").siblings().detach().prependTo("#npcDis").removeClass("box1").addClass("box3");
 				game.pc = game.maul;
 				game.clickCounter++;
-				game.flag = false;
-			} else if (game.clickCounter === 1 && $("#maul").hasClass("box3")) {
+			} else if ($("#maul").hasClass("box3") && game.hasChoosenNPC === false) {
 				$("#maul").detach().prependTo("#npcDefenderDis").removeClass("box3").addClass("box4");
 				game.npc = game.maul;
 				game.clickCounter++;
-				game.flag = true;
-			}else if (game.clickCounter === 2 && $("#maul").hasClass("box3") && $("#maul").hasClass("alive")) {
-				$("#maul").detach().prependTo("#npcDefenderDis").removeClass("box3").addClass("box4");
-				game.npc = game.maul;
-				game.clickCounter++;
-				game.flag = true;
+				game.hasChoosenNPC = true;
+				$("#gameText").text("");
 			}
 		});
 	},
 	
 	"fight": function() {
 		$("#attackButton").click(function() {
-			if (game.flag === true) {
+			if (game.hasChoosenNPC === true) {
 				game.currentAttack = game.pc.attack + game.previousAttack;
 				game.previousAttack = game.currentAttack;
 				if(game.pc.health > 0 && game.npc.health > 0) {
 					game.npc.health = game.npc.health - game.currentAttack;
-					game.pc.health = game.pc.health - game.npc.counter;
+					if(game.npc.health > 0) {
+						game.pc.health = game.pc.health - game.npc.counter;
+					}
 					$("#gameText").html("You attacked " + game.npc.name + "for " + game.currentAttack + "damage. <br>" + game.npc.name + "attacks you back for " + game.npc.counter + "damage.");
 					$(".sidiousLifeDis").text(game.sidious.health);
 					$(".lukeLifeDis").text(game.luke.health);
@@ -127,53 +109,26 @@ var game = {
 				}
 			}
 		
-		if (game.pc.health <= 0) {
-			game.flag = false
+		if (game.pc.health <= 0) {			
 			$("#restart").removeClass('hidden');
 				$("#gameText").text("You've been defeated... GAME OVER!!!");
 		} else if (game.npc.health <= 0) {
 			if (game.npc === game.luke) {
-				$("#sky").addClass("hidden box1").removeClass("box4 alive");
-					game.liveCharacters.splice("game.luke",1);
-					$(".box3").addClass("alive");
-					game.flag = false;
+				$("#sky").addClass("hidden box1").removeClass("box4");
 			} else if (game.npc === game.obiwan) {
-				$("#ken").addClass("hidden box1").removeClass("box4 alive");
-				game.liveCharacters.splice("game.obiwan",1);
-				$(".box3").addClass("alive");
-				game.flag = false;
+				$("#ken").addClass("hidden box1").removeClass("box4");
 			} else if (game.npc === game.sidious) {
-				$("#sid").addClass("hidden box1").removeClass("box4 alive");
-				game.liveCharacters.splice("game.sidious",1);
-				$(".box3").addClass("alive");
-				game.flag = false;
+				$("#sid").addClass("hidden box1").removeClass("box4");
 			} else if (game.npc === game.maul) {
-				$("#maul").addClass("hidden box1").removeClass("box4 alive");
-				game.liveCharacters.splice("game.maul",1);
-				$(".box3").addClass("alive");
-				game.flag = false;
+				$("#maul").addClass("hidden box1").removeClass("box4");
 			}
+			game.winCounter++;
+			game.hasChoosenNPC = false;
 			$("#gameText").html("You have defeated " + game.npc.name + ", you can choose to fight another.");
 		}
-		if (game.liveCharacters.length === 2) {
-			$(".box3").detach().prependTo("#npcDefenderDis").removeClass("box3").addClass("box4");
-			if($(".box4").hasClass("lukeSky")) {
-				game.npc = game.luke;
-				game.flag = true;
-			} else if($(".box4").hasClass("obiwanKen")) {
-				game.npc = game.obiwan;
-				game.flag = true;
-			} else if($(".box4").hasClass("darthSid")) {
-				game.npc = game.sidious;
-				game.flag = true;
-			} else if($(".box4").hasClass("darthMaul")) {
-				game.npc = game.maul;
-				game.flag = true;
-			}  
-		}
-		if (game.liveCharacters.length === 1) {
+		
+		if (game.winCounter === 3) {
 			$("#gameText").html("You Won!!! GAME OVER!!!");
-			game.flag = false;
 			$("#restart").removeClass("hidden");
 		}
 		});
@@ -184,17 +139,17 @@ var game = {
 			game.luke.health = 100;
 			game.sidious.health = 150;
 			game.maul.health = 180;
-			game.liveCharacters = ["game.luke", "game.obiwan", "game.sidious", "game.maul"];
 			game.previousAttack = 0;
 			game.currentAttack = 0;
 		 	game.pc = "";
 			game.npc ="";
-			game.clickCounter = 0;
-			flag = false;
-			$("#sky").detach().removeClass("alive box2 box3 box4 hidden").addClass("box1").appendTo("#characters");
-			$("#ken").detach().removeClass("alive box2 box3 box4 hidden").addClass("box1").appendTo("#characters");
-			$("#sid").detach().removeClass("alive box2 box3 box4 hidden").addClass("box1").appendTo("#characters");
-			$("#maul").detach().removeClass("alive box2 box3 box4 hidden").addClass("box1").appendTo("#characters");
+			game.hasChoosenNPC = false;
+			game.winCounter = 0;
+			$("#gameText").text("");
+			$("#sky").detach().removeClass("box2 box3 box4 hidden").addClass("box1").appendTo("#characters");
+			$("#ken").detach().removeClass("box2 box3 box4 hidden").addClass("box1").appendTo("#characters");
+			$("#sid").detach().removeClass("box2 box3 box4 hidden").addClass("box1").appendTo("#characters");
+			$("#maul").detach().removeClass("box2 box3 box4 hidden").addClass("box1").appendTo("#characters");
 			$("#restart").addClass("hidden");
 			$(".sidiousLifeDis").text(game.sidious.health);
 			$(".lukeLifeDis").text(game.luke.health);
