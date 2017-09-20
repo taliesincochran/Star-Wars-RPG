@@ -10,32 +10,50 @@
 	<h1 id='gameHeader'>Star Wars RPG!</h1>
 <!-- Area where selectable playable characters are displayed initially -->
 	<div class='clearfix'>
+		<h1 id= "chooseSide">Choose your side.</h1>
+		<h2 class="hidden" id= "chooseCharacter">Choose your character.</h2>
 		<ul class='list' id="characters">
-			<li class='box box1' id="ken">
-				<p>Obi-Wan Kenobi</p>
-				<img src="assets/images/obiwan.png" alt="Obi-Wan Kenobi">
-				<p class='kenobiLifeDis lifeDis' id="ken1">120</p>
+			<li class="sidebox" id="jedi">
+				<p class="sideText">Jedi</p>
+				<img src="assets/images/jedi.png"  class="sideImg"  alt="Jedi"></li>
+			<li class="sidebox" id="sith">
+				<p class="sideText">Sith</p>
+				<img src="assets/images/sith.png" class="sideImg" alt="sith"></li>
+			<li class='box box1 hidden' id="ken">
+				<p class="charText">Obi-Wan Kenobi</p>
+				<img src="assets/images/obiwan.png"  class="charImg" alt="Obi-Wan Kenobi">
+				<p class='kenobiLifeDis lifeDis'></p>
 			</li>
-			<li class='box box1'  id="sky">
-				<p>Luke Skywalker</p>
-				<img src="assets/images/skywalker.png" alt="Luke Skywalker">
-				<p class='lukeLifeDis lifeDis'>100</p>
+			<li class='box box1 hidden'  id="sky">
+				<p class="charText">Luke Skywalker</p>
+				<img src="assets/images/skywalker.png"  class="charImg" alt="Luke Skywalker">
+				<p class='lukeLifeDis lifeDis'></p>
 			</li>
-			<li class='box box1' id="sid">
-				<p>Darth Sidious</p>
-				<img src="assets/images/sideous.png" alt="Darth Sideous">
-				<p class='sidiousLifeDis lifeDis'>150</p>
+			<li class='box box1 hidden' id="yoda">
+				<p class="charText">Yoda</p>
+				<img src="assets/images/yoda.png"  class="charImg" alt="Yoda">
+				<p class='yodaLifeDis lifeDis'></p>
 			</li>
-			<li class='box box1' id="maul">
-				<p>Darth Maul</p>
-				<img src="assets/images/maul.png" alt="Darth Maul">
-				<p class='maulLifeDis lifeDis'>180</p>
+			<li class='box box1 hidden' id="sid">
+				<p class="charText">Darth Sidious</p>
+				<img src="assets/images/sideous.png"  class="charImg" alt="Darth Sideous">
+				<p class='sidiousLifeDis lifeDis'></p>
+			</li>
+			<li class='box box1 hidden' id="maul">
+				<p class="charText">Darth Maul</p>
+				<img src="assets/images/maul.png"  class="charImg" alt="Darth Maul">
+				<p class='maulLifeDis lifeDis'></p>
+			</li>
+			<li class='box box1 hidden' id="vad">
+				<p class="charText">Darth Vader</p>
+				<img src="assets/images/vader.png"  class="charImg" alt="Darth Vader">
+				<p class='vaderLifeDis lifeDis'></p>
 			</li>
 		</ul>
 	</div>
 	<div class='clearfix'>
 <!-- Area where the character the player has picked is displayed -->
-		<h2>Your Character</h2>
+		<h2 id="yourChar" class="hidden">Your Character</h2>
 		<ul class='list' id="pcDis">
 			<li class='box invisible placeholder'>
 			</li>
@@ -46,11 +64,13 @@
 		<h2>Enemies Available To Attack</h2>
 		<ul class='list' id="npcDis">
 		</ul>
+
 	</div>
 	<div  class='clearfix'>
 <!-- Area where the fight button is displayed -->
 		<h2>Fight Section</h2>
-		<button id='attackButton'>Attack</button>
+		<button id='attackButton' class="btn"><p class='btnText'>Attack</p></button>
+		<div id="placeholder"></div>
 	</div>
 	<div  class='clearfix'>
 <!-- Area where the current opponent is displayed -->
@@ -61,8 +81,10 @@
 	<div  class='clearfix'>
 <!-- Area where variable text and restart button is displayed -->
 		<p id='gameText'></p>
-		<button id='restart' class='hidden'>Restart</button>
+		<p id='gameText2'></p>
+		<button id='restart' class='btn hidden'><p class='btnText'>Restart</p></button>
 	</div>
+			<div id="pcHolder"></div>
 	<script
   src="https://code.jquery.com/jquery-3.2.1.js"
   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="

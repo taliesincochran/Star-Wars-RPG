@@ -1,23 +1,19 @@
 p {
-	font-size: 8px;
+	font-size: 12px;
 	text-align: center;
 	line-height: 11px;
+
 }
 body {
-	/*width: 774px;
-	height: 543px;*/
 	background-image: url(../images/background.png);
 	background-size: 100%;
 	background-repeat: no-repeat;
-	/*border-color: black;
-	border-style: solid;
-	border-width: 1px;*/
-
-}
+	font-family: monospace;
+	}
 button {
-	width: 32px;
-	height: 14px;
-	font-size: 6px;
+	width: 50px;
+	height: 20px;
+	font-size: 10px;
 }
 .clearfix:after {
    content: " "; /* Older browser do not support empty content */
@@ -29,9 +25,23 @@ button {
 #gameHeader {
 	text-align: right;
 	padding-right:113px;
+	font-size: 2em;
 
 }
-
+h1 {
+	font-size: 2em;
+}
+h2 {
+	font-size: 1.5em;
+}
+.list,
+h2,
+h1,
+button,
+#gameText,
+#gameText2 {
+	margin-left: 5px;
+}
 .hidden {
 	display: none;
 }
@@ -42,6 +52,7 @@ li {
 	display: inline-block;
 	float: left;
 }
+
 .box {
 	width:106px;
 	height:86px;
@@ -62,12 +73,22 @@ li {
 	border-color: green;
 	color: white;
 }
-img {
+.charImg {
 	width:88px;
 	height:59px;
 	margin: 0 auto;
 	padding-left: 10px;
 }
-#gameText {
+#gameText,
+#gameText2 {
 	text-align: left;
+}
+.sideImg {
+	width: 200px;
+	height: 125px;
+	padding-right: 10px;
+}
+#pcHolder {
+	width:200px;
+	height:200px;
 }
