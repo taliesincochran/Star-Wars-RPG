@@ -4,16 +4,22 @@ p {
 	line-height: 11px;
 
 }
+.red {
+	color:red;
+}
+.blue {
+	color:blue;
+}
 body {
 	background-image: url(../images/background.png);
-	background-size: 100%;
+	background-size: 150%;
 	background-repeat: no-repeat;
 	font-family: monospace;
 	}
 button {
-	width: 50px;
+	width: 100px;
 	height: 20px;
-	font-size: 10px;
+	font-size: 8px;
 }
 .clearfix:after {
    content: " "; /* Older browser do not support empty content */
@@ -27,6 +33,9 @@ button {
 	padding-right:113px;
 	font-size: 2em;
 
+}
+#restart {
+	margin-top: 5px;
 }
 h1 {
 	font-size: 2em;
@@ -79,6 +88,7 @@ li {
 	margin: 0 auto;
 	padding-left: 10px;
 }
+
 #gameText,
 #gameText2 {
 	text-align: left;

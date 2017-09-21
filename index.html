@@ -61,20 +61,21 @@
 	</div>
 	<div  class='clearfix'>
 <!-- Area where the potential opponents are displayed -->
-		<h2>Enemies Available To Attack</h2>
+		<h2 id="enemiesAvailable" class="hidden">Enemies Available To Attack</h2>
 		<ul class='list' id="npcDis">
 		</ul>
 
 	</div>
 	<div  class='clearfix'>
 <!-- Area where the fight button is displayed -->
-		<h2>Fight Section</h2>
-		<button id='attackButton' class="btn"><p class='btnText'>Attack</p></button>
+		<h2 id="fight" class='hidden'>Fight Section</h2>
+		<button id='attackButton' class="hidden"><p class='btnText'>Attack</p></button>
+		<button id='changeTarget' class='hidden'><p class='btnText'>Change Target</p></button>
 		<div id="placeholder"></div>
 	</div>
 	<div  class='clearfix'>
 <!-- Area where the current opponent is displayed -->
-		<h2>Defender</h2>
+		<h2 class="hidden" id = "defender">Defender</h2>
 		<ul class='list' id="npcDefenderDis">			
 		</ul>
 	</div>
@@ -84,7 +85,6 @@
 		<p id='gameText2'></p>
 		<button id='restart' class='btn hidden'><p class='btnText'>Restart</p></button>
 	</div>
-			<div id="pcHolder"></div>
 	<script
   src="https://code.jquery.com/jquery-3.2.1.js"
   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
