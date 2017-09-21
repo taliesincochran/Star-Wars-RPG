@@ -45,6 +45,7 @@ $( document ).ready(function() {
 		"hasChoosenNPC":false,
 		"winCounter": 0,
 		"jedi": undefined,
+		"soundPlayed": false,
 		"sounds": {
 			"lightSaber": {
 				"fight": function () {	
@@ -290,20 +291,26 @@ $( document ).ready(function() {
 			},
 			"loss" :{
 				"jediLoss": function () {	
-					var snd11  = new Audio();
-					var src11  = document.createElement("source");
-					src11.type = "audio/mpeg";
-					src11.src  = "assets/sounds/loss/jediLoss.mp3"
-					snd11.appendChild(src11);
-					snd11.play();
+					if (!game.soundPlayed) {
+						var snd11  = new Audio();
+						var src11  = document.createElement("source");
+						src11.type = "audio/mpeg";
+						src11.src  = "assets/sounds/loss/jediLoss.mp3"
+						snd11.appendChild(src11);
+						snd11.play();
+						game.soundPlayed = true;
+					}
 				},
 				"sithLoss": function () {	
-					var snd11  = new Audio();
-					var src11  = document.createElement("source");
-					src11.type = "audio/mpeg";
-					src11.src  = "assets/sounds/loss/sithLoss.mp3"
-					snd11.appendChild(src11);
-					snd11.play();
+					if (!game.soundPlayed) {
+						var snd11  = new Audio();
+						var src11  = document.createElement("source");
+						src11.type = "audio/mpeg";
+						src11.src  = "assets/sounds/loss/sithLoss.mp3"
+						snd11.appendChild(src11);
+						snd11.play();
+						game.soundPlayed = true;
+					}
 				},
 			},
 
@@ -602,6 +609,7 @@ $( document ).ready(function() {
 				game.hasChoosenNPC = false;
 				game.winCounter = 0;
 				game.jedi = undefined;
+				game.soundPlayed = false;
 				$("#gameText").text("");
 				$("#ken").detach().removeClass("box1 box2 box3 box4").addClass("box1 hidden").prependTo("#characters");
 				$("#sky").detach().removeClass("box1 box2 box3 box4").addClass("box1 hidden").prependTo("#characters");
