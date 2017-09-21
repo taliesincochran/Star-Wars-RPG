@@ -56,254 +56,254 @@ $( document ).ready(function() {
 					snd1.play();
 				},
 				"lightSaberOn":  function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/lightSaber/lightSaberOn.mp3";
-					snd1.appendChild(src1);
-					snd1.play();
+					var snd2  = new Audio();
+					var src2  = document.createElement("source");
+					src2.type = "audio/mpeg";
+					src2.src  = "assets/sounds/lightSaber/lightSaberOn.mp3";
+					snd2.appendChild(src2);
+					snd2.play();
 				},
 			},
 			"choosePc": { 
 				"sky":  function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/choosePc/chooseLuke.mp3";
-					snd1.appendChild(src1);
-					snd1.play();
+					var snd3  = new Audio();
+					var src3  = document.createElement("source");
+					src3.type = "audio/mpeg";
+					src3.src  = "assets/sounds/choosePc/chooseLuke.mp3";
+					snd3.appendChild(src3);
+					snd3.play();
 				},
 				"ken": function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/choosePc/chooseObiwan.mp3";
-					snd1.appendChild(src1);
-					snd1.play();
+					var snd3  = new Audio();
+					var src3  = document.createElement("source");
+					src3.type = "audio/mpeg";
+					src3.src  = "assets/sounds/choosePc/chooseObiwan.mp3";
+					snd3.appendChild(src3);
+					snd3.play();
 				},
 				"yoda": function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/choosePc/chooseYoda.mp3";
-					snd1.appendChild(src1);
-					snd1.play();
+					var snd3  = new Audio();
+					var src3  = document.createElement("source");
+					src3.type = "audio/mpeg";
+					src3.src  = "assets/sounds/choosePc/chooseYoda.mp3";
+					snd3.appendChild(src3);
+					snd3.play();
 				},
 				"sid": function (){	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/choosePc/chooseSid.mp3";
-					snd1.appendChild(src1);
-					snd1.play();
+					var snd3  = new Audio();
+					var src3  = document.createElement("source");
+					src3.type = "audio/mpeg";
+					src3.src  = "assets/sounds/choosePc/chooseSid.mp3";
+					snd3.appendChild(src3);
+					snd3.play();
 				},
 				"vad": function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/choosePc/chooseVader.mp3";
-					snd1.appendChild(src1);
-					snd1.play();
+					var snd3  = new Audio();
+					var src3  = document.createElement("source");
+					src3.type = "audio/mpeg";
+					src3.src  = "assets/sounds/choosePc/chooseVader.mp3";
+					snd3.appendChild(src3);
+					snd3.play();
 				},
 				"maul": function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/choosePc/chooseMaul.mp3";
-					snd1.appendChild(src1);
-					snd1.play();
+					var snd3  = new Audio();
+					var src3  = document.createElement("source");
+					src3.type = "audio/mpeg";
+					src3.src  = "assets/sounds/choosePc/chooseMaul.mp3";
+					snd3.appendChild(src3);
+					snd3.play();
 				},			
 			},
 			"npcSky": {
 				"sid": function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/npcLuke/pcSidNpcLuke.mp3"
-					snd1.appendChild(src1);
-					snd1.play();
+					var snd4  = new Audio();
+					var src4  = document.createElement("source");
+					src4.type = "audio/mpeg";
+					src4.src  = "assets/sounds/npcLuke/pcSidNpcLuke.mp3"
+					snd4.appendChild(src4);
+					snd4.play();
 				},			
 				"vad": function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/npcLuke/pcVaderNpcLuke.mp3"
-					snd1.appendChild(src1);
-					snd1.play();
+					var snd4  = new Audio();
+					var src4  = document.createElement("source");
+					src4.type = "audio/mpeg";
+					src4.src  = "assets/sounds/npcLuke/pcVaderNpcLuke.mp3"
+					snd4.appendChild(src4);
+					snd4.play();
 				},			
 				"maul": function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/npcLuke/pcMaulNpcLuke.mp3"
-					snd1.appendChild(src1);
-					snd1.play();
+					var snd4  = new Audio();
+					var src4  = document.createElement("source");
+					src4.type = "audio/mpeg";
+					src4.src  = "assets/sounds/npcLuke/pcMaulNpcLuke.mp3"
+					snd4.appendChild(src4);
+					snd4.play();
 				},			
 			},
 			"npcKen": {
 				"sid": function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/npcObiwan/pcSidNpcObiwan.mp3"
-					snd1.appendChild(src1);
-					snd1.play();
+					var snd5  = new Audio();
+					var src5  = document.createElement("source");
+					src5.type = "audio/mpeg";
+					src5.src  = "assets/sounds/npcObiwan/pcSidNpcObiwan.mp3"
+					snd5.appendChild(src5);
+					snd5.play();
 				},			
 				"vad": function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/npcObiwan/pcVaderNpcObiwan.mp3"
-					snd1.appendChild(src1);
-					snd1.play();
+					var snd5  = new Audio();
+					var src5  = document.createElement("source");
+					src5.type = "audio/mpeg";
+					src5.src  = "assets/sounds/npcObiwan/pcVaderNpcObiwan.mp3"
+					snd5.appendChild(src5);
+					snd5.play();
 				},			
 				"maul":function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/npcObiwan/pcMaulNpcObiwan.mp3"
-					snd1.appendChild(src1);
-					snd1.play();
+					var snd5  = new Audio();
+					var src5  = document.createElement("source");
+					src5.type = "audio/mpeg";
+					src5.src  = "assets/sounds/npcObiwan/pcMaulNpcObiwan.mp3"
+					snd5.appendChild(src5);
+					snd5.play();
 				},			
 			},
 			"npcYoda": {
 				"sid": function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/npcYoda/pcSidNpcYoda.mp3"
-					snd1.appendChild(src1);
-					snd1.play();
+					var snd6  = new Audio();
+					var src6  = document.createElement("source");
+					src6.type = "audio/mpeg";
+					src6.src  = "assets/sounds/npcYoda/pcSidNpcYoda.mp3"
+					snd6.appendChild(src6);
+					snd6.play();
 				},			
 				"vad": function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/npcYoda/pcVaderNpcYoda.mp3"
-					snd1.appendChild(src1);
-					snd1.play();
+					var snd6  = new Audio();
+					var src6  = document.createElement("source");
+					src6.type = "audio/mpeg";
+					src6.src  = "assets/sounds/npcYoda/pcVaderNpcYoda.mp3"
+					snd6.appendChild(src6);
+					snd6.play();
 				},			
 				"maul":function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/npcYoda/pcMaulNpcYoda.mp3"
-					snd1.appendChild(src1);
-					snd1.play();
+					var snd6  = new Audio();
+					var src6  = document.createElement("source");
+					src6.type = "audio/mpeg";
+					src6.src  = "assets/sounds/npcYoda/pcMaulNpcYoda.mp3"
+					snd6.appendChild(src6);
+					snd6.play();
 				},	
 			},		
 			"npcSid": {
 				"sky": function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/npcSid/pcLukeNpcSid.mp3"
-					snd1.appendChild(src1);
-					snd1.play();
+					var snd7  = new Audio();
+					var src7  = document.createElement("source");
+					src7.type = "audio/mpeg";
+					src7.src  = "assets/sounds/npcSid/pcLukeNpcSid.mp3"
+					snd7.appendChild(src7);
+					snd7.play();
 				},
 				"ken": function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/npcSid/pcObiwanNpcSid.mp3"
-					snd1.appendChild(src1);
-					snd1.play();
+					var snd7  = new Audio();
+					var src7  = document.createElement("source");
+					src7.type = "audio/mpeg";
+					src7.src  = "assets/sounds/npcSid/pcObiwanNpcSid.mp3"
+					snd7.appendChild(src7);
+					snd7.play();
 				},
 				"yoda": function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/npcSid/pcYodaNpcSid.mp3"
-					snd1.appendChild(src1);
-					snd1.play();
+					var snd7  = new Audio();
+					var src7  = document.createElement("source");
+					src7.type = "audio/mpeg";
+					src7.src  = "assets/sounds/npcSid/pcYodaNpcSid.mp3"
+					snd7.appendChild(src7);
+					snd7.play();
 				},
 			},
 			"npcMaul": {
 				"sky": function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/npcMaul/pcLukeNpcMaul.mp3"
-					snd1.appendChild(src1);
-					snd1.play();
+					var snd8  = new Audio();
+					var src8  = document.createElement("source");
+					src8.type = "audio/mpeg";
+					src8.src  = "assets/sounds/npcMaul/pcLukeNpcMaul.mp3"
+					snd8.appendChild(src8);
+					snd8.play();
 				},
 				"ken": function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/npcMaul/pcObiwanNpcMaul.mp3"
-					snd1.appendChild(src1);
-					snd1.play();
+					var snd8  = new Audio();
+					var src8  = document.createElement("source");
+					src8.type = "audio/mpeg";
+					src8.src  = "assets/sounds/npcMaul/pcObiwanNpcMaul.mp3"
+					snd8.appendChild(src8);
+					snd8.play();
 				},
 				"yoda": function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/npcMaul/pcYodaNpcMaul.mp3"
-					snd1.appendChild(src1);
-					snd1.play();
+					var snd8  = new Audio();
+					var src8  = document.createElement("source");
+					src8.type = "audio/mpeg";
+					src8.src  = "assets/sounds/npcMaul/pcYodaNpcMaul.mp3"
+					snd8.appendChild(src8);
+					snd8.play();
 				},
 			},
 			"npcVad" : {
 				"sky": function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/npcVader/pcLukeNpcVader.mp3"
-					snd1.appendChild(src1);
-					snd1.play();
+					var snd9  = new Audio();
+					var src9  = document.createElement("source");
+					src9.type = "audio/mpeg";
+					src9.src  = "assets/sounds/npcVader/pcLukeNpcVader.mp3"
+					snd9.appendChild(src9);
+					snd9.play();
 				},
 				"ken": function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/npcVader/pcObiwanNpcVader.mp3"
-					snd1.appendChild(src1);
-					snd1.play();
+					var snd9  = new Audio();
+					var src9  = document.createElement("source");
+					src9.type = "audio/mpeg";
+					src9.src  = "assets/sounds/npcVader/pcObiwanNpcVader.mp3"
+					snd9.appendChild(src9);
+					snd9.play();
 				},
 				"yoda": function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/npcVader/pcYodaNpcVader.mp3"
-					snd1.appendChild(src1);
-					snd1.play();
+					var snd9  = new Audio();
+					var src9  = document.createElement("source");
+					src9.type = "audio/mpeg";
+					src9.src  = "assets/sounds/npcVader/pcYodaNpcVader.mp3"
+					snd9.appendChild(src9);
+					snd9.play();
 				},
 			},
 			"win" :{
 				"jedi": function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/win/jediWin.mp3"
-					snd1.appendChild(src1);
-					snd1.play();
+					var snd10  = new Audio();
+					var src10  = document.createElement("source");
+					src10.type = "audio/mpeg";
+					src10.src  = "assets/sounds/win/jediWin.mp3"
+					snd10.appendChild(src10);
+					snd10.play();
 				},
 				"sith": function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/win/sithWin.mp3"
-					snd1.appendChild(src1);
-					snd1.play();
+					var snd10  = new Audio();
+					var src10  = document.createElement("source");
+					src10.type = "audio/mpeg";
+					src10.src  = "assets/sounds/win/sithWin.mp3"
+					snd10.appendChild(src10);
+					snd10.play();
 				},
 			},
 			"loss" :{
-				"jedi": function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/loss/jediLoss.mp3"
-					snd1.appendChild(src1);
-					snd1.play();
+				"jediLoss": function () {	
+					var snd11  = new Audio();
+					var src11  = document.createElement("source");
+					src11.type = "audio/mpeg";
+					src11.src  = "assets/sounds/loss/jediLoss.mp3"
+					snd11.appendChild(src11);
+					snd11.play();
 				},
-				"sith": function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/loss/sithLoss.mp3"
-					snd1.appendChild(src1);
-					snd1.play();
+				"sithLoss": function () {	
+					var snd11  = new Audio();
+					var src11  = document.createElement("source");
+					src11.type = "audio/mpeg";
+					src11.src  = "assets/sounds/loss/sithLoss.mp3"
+					snd11.appendChild(src11);
+					snd11.play();
 				},
 			},
 
