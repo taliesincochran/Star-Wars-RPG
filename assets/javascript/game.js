@@ -84,8 +84,7 @@ $( document ).ready(function() {
 				},
 				"yoda": function () {	
 					game.sound = "assets/sounds/choosePc/chooseYoda.mp3";
-					snd3.appendChild(src3);
-					snd3.play();
+					game.sounds.current(game.sound);	
 				},
 				"sid": function (){	
 					game.sound = "assets/sounds/choosePc/chooseSid.mp3";
@@ -231,42 +230,47 @@ $( document ).ready(function() {
 				$("body").css("background-image","url(assets/images/background.png)");		
 			});
 		},
-		//Allows user to choose Sith or Jedi, hides choices and reveals characters
-		"chooseSide": function() {
-			$("#jedi").click(function() {
-				$("#sky").removeClass("hidden");
-				$("#ken").removeClass("hidden");
-				$("#yoda").removeClass("hidden");
-				$("#sid").detach().prependTo("#npcDis").removeClass("box1").addClass("box3");
-				$("#maul").detach().prependTo("#npcDis").removeClass("box1").addClass("box3");
-				$("#vad").detach().prependTo("#npcDis").removeClass("box1").addClass("box3");
-				$("#jedi").addClass("hidden");
-				$("#sith").addClass("hidden");
-				$("#chooseSide").addClass("hidden");
-				$("#chooseCharacter").removeClass("hidden");
-				game.jedi = true;
-				game.sounds.lightSaber.lightSaberOn();
-			});
-			$("#sith").click(function() {
-				$("#sid").removeClass("hidden");
-				$("#maul").removeClass("hidden");
-				$("#vad").removeClass("hidden");
-				$("#ken").detach().prependTo("#npcDis").removeClass("box1").addClass("box3");
-				$("#sky").detach().prependTo("#npcDis").removeClass("box1").addClass("box3");
-				$("#yoda").detach().prependTo("#npcDis").removeClass("box1").addClass("box3");
-				$("#jedi").addClass("hidden");
-				$("#sith").addClass("hidden");
-				$("#chooseCharacter").removeClass("hidden");
-				game.jedi = false;	
-				game.sounds.lightSaber.lightSaberOn();
-			});
-			
+		"updateLife": function() {
 			$(".sidiousLifeDis").text(game.sidious.health);
 			$(".lukeLifeDis").text(game.luke.health);
 			$(".maulLifeDis").text(game.maul.health);
 			$(".kenobiLifeDis").text(game.obiwan.health);
 			$(".yodaLifeDis").text(game.yoda.health);
 			$(".vaderLifeDis").text(game.vader.health);
+		},
+		//Allows user to choose Sith or Jedi, hides choices and reveals characters
+		"hideSide": function () {
+			$("#jedi").addClass("hidden");
+			$("#sith").addClass("hidden");
+			$("#chooseSide").addClass("hidden");
+			$("#chooseCharacter").removeClass("hidden");
+			game.sounds.lightSaber.lightSaberOn();
+		},
+		"chooseSide": function() {
+			$("#jedi").on("click",function() {
+				$("#sky").removeClass("hidden");
+				$("#ken").removeClass("hidden");
+				$("#yoda").removeClass("hidden");
+				$("#sid").detach().prependTo("#npcDis").removeClass("box1").addClass("box3");
+				$("#maul").detach().prependTo("#npcDis").removeClass("box1").addClass("box3");
+				$("#vad").detach().prependTo("#npcDis").removeClass("box1").addClass("box3");
+				game.hideSide();
+				game.jedi = true;
+				
+			});
+			$("#sith").on("click",function() {
+				$("#sid").removeClass("hidden");
+				$("#maul").removeClass("hidden");
+				$("#vad").removeClass("hidden");
+				$("#ken").detach().prependTo("#npcDis").removeClass("box1").addClass("box3");
+				$("#sky").detach().prependTo("#npcDis").removeClass("box1").addClass("box3");
+				$("#yoda").detach().prependTo("#npcDis").removeClass("box1").addClass("box3");
+				game.hideSide();
+				game.jedi = false;	
+				
+			});
+			//initial life display
+			game.updateLife();
 		},
 		// function that runs to choose character and opponent 
 		"attacker": function() {		
@@ -294,7 +298,6 @@ $( document ).ready(function() {
 				}
 			};
 			var chooseNPC = function () {
-
 				game.hasChoosenNPC = true;
 					$("#gameText").text("");
 					$("#defender").removeClass("hidden");
@@ -302,7 +305,7 @@ $( document ).ready(function() {
 					$("#enemiesAvailable").addClass("hidden");
 				}
 			};
-			$("#sky").click(function() {
+			$("#sky").on("click",function() {
 				if ($("#sky").hasClass("box1")) {
 					 $("#sky").detach().prependTo("#pcDis").removeClass("box1").addClass("box2");
 					game.pc = game.luke;
@@ -322,7 +325,7 @@ $( document ).ready(function() {
 					
 				}
 			});
-			$("#ken").click(function() {
+			$("#ken").on("click",function() {
 				if ($("#ken").hasClass("box1")) {
 					$("#ken").detach().prependTo("#pcDis").removeClass("box1").addClass("box2");
 					game.pc = game.obiwan;
@@ -341,7 +344,7 @@ $( document ).ready(function() {
 					} 
 				}
 			});
-			$("#yoda").click(function() {
+			$("#yoda").on("click",function() {
 				if ($("#yoda").hasClass("box1")) {
 					$("#yoda").detach().prependTo("#pcDis").removeClass("box1").addClass("box2");
 					game.pc = game.yoda;
@@ -360,7 +363,7 @@ $( document ).ready(function() {
 					} 
 				}
 			});
-			$("#sid").click(function() {			
+			$("#sid").on("click",function() {			
 				if ($("#sid").hasClass("box1")) {
 					$("#sid").detach().prependTo("#pcDis").removeClass("box1").addClass("box2");
 					game.pc = game.sidious;	
@@ -379,7 +382,7 @@ $( document ).ready(function() {
 					} 
 				}
 			});
-			$("#maul").click(function() {
+			$("#maul").on("click",function() {
 				if ($("#maul").hasClass("box1")) {
 					$("#maul").detach().prependTo("#pcDis").removeClass("box1").addClass("box2");
 					game.pc = game.maul;
@@ -398,7 +401,7 @@ $( document ).ready(function() {
 					} 
 				}
 			});
-			$("#vad").click(function() {
+			$("#vad").on("click",function() {
 				if ($("#vad").hasClass("box1")) {
 					$("#vad").detach().prependTo("#pcDis").removeClass("box1").addClass("box2");
 					game.pc = game.vader;
@@ -420,7 +423,7 @@ $( document ).ready(function() {
 		},
 		// Function that runs when attack button is pressed.  Determines and displays damage, determines death
 		"fight": function() {
-			$("#attackButton").click(function() {
+			$("#attackButton").on("click",function() {
 				if (game.hasChoosenNPC) {
 					game.sounds.lightSaber.fight();
 					game.currentAttack = game.pc.attack + game.previousAttack;
@@ -431,12 +434,7 @@ $( document ).ready(function() {
 							game.pc.health = game.pc.health - game.npc.counter;
 						}
 						$("#gameText").html("You attacked " + " " + game.npc.name + " " + "for " +  "<span class='red'>" + game.currentAttack + "</span> damage. <br>" + game.npc.name + " " + "attacks you back for <span class= 'red'> " + game.npc.counter + "</span> damage.");
-						$(".sidiousLifeDis").text(game.sidious.health);
-						$(".lukeLifeDis").text(game.luke.health);
-						$(".maulLifeDis").text(game.maul.health);
-						$(".kenobiLifeDis").text(game.obiwan.health);
-						$(".yodaLifeDis").text(game.yoda.health);
-						$(".vaderLifeDis").text(game.vader.health);
+						game.updateLife();
 					}
 				}
 				var npcDeath = function () {
@@ -500,7 +498,7 @@ $( document ).ready(function() {
 		},
 		//function that runs when change target button is pressed
 		"changeCurrentTarget": function() {
-			$("#changeTarget").click(function() {
+			$("#changeTarget").on("click",function() {
 				if (game.hasChoosenNPC) {
 					$(".box4").detach().removeClass("box4").addClass("box3").appendTo("#npcDis");
 					game.hasChoosenNPC = false;
@@ -541,12 +539,7 @@ $( document ).ready(function() {
 				$("#chooseSide").removeClass("hidden");
 				$("#restart").addClass("hidden");
 				$("#enemiesAvailable").addClass("hidden");
-				$(".sidiousLifeDis").text(game.sidious.health);
-				$(".lukeLifeDis").text(game.luke.health);
-				$(".maulLifeDis").text(game.maul.health);
-				$(".vaderLifeDis").text(game.vader.health);
-				$(".kenobiLifeDis").text(game.obiwan.health);
-				$(".yodaLifeDis").text(game.yoda.health);
+				game.updateLife();
 
 			});
 
