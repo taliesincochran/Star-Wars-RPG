@@ -51,272 +51,162 @@ $( document ).ready(function() {
 		"jedi": undefined,
 		//Keeps loss sound played from happening over and over again
 		"soundPlayed": false,
-		//Game sounds
+		//Game sounds, could use optimization
+		"sound":"",
 		"sounds": {
+			"current": function(sound) {
+				var snd1  = new Audio();
+				var src1  = document.createElement("source");
+				src1.type = "audio/mpeg";
+				src1.src  = sound;
+				snd1.appendChild(src1);
+				snd1.play();
+			},
 			"lightSaber": {
 				"fight": function () {	
-					var snd1  = new Audio();
-					var src1  = document.createElement("source");
-					src1.type = "audio/mpeg";
-					src1.src  = "assets/sounds/lightSaber/fight.mp3";
-					snd1.appendChild(src1);
-					snd1.play();
+					game.sound  = "assets/sounds/lightSaber/fight.mp3";
+					game.sounds.current(game.sound);					
 				},
 				"lightSaberOn":  function () {	
-					var snd2  = new Audio();
-					var src2  = document.createElement("source");
-					src2.type = "audio/mpeg";
-					src2.src  = "assets/sounds/lightSaber/lightSaberOn.mp3";
-					snd2.appendChild(src2);
-					snd2.play();
+					game.sound = "assets/sounds/lightSaber/lightSaberOn.mp3";
+					game.sounds.current(game.sound);	
 				},
 			},
 			//Plays when PC is selected
 			"choosePc": { 
 				"sky":  function () {	
-					var snd3  = new Audio();
-					var src3  = document.createElement("source");
-					src3.type = "audio/mpeg";
-					src3.src  = "assets/sounds/choosePc/chooseLuke.mp3";
-					snd3.appendChild(src3);
-					snd3.play();
+					game.sound = "assets/sounds/choosePc/chooseLuke.mp3";
+					game.sounds.current(game.sound);	
 				},
 				"ken": function () {	
-					var snd3  = new Audio();
-					var src3  = document.createElement("source");
-					src3.type = "audio/mpeg";
-					src3.src  = "assets/sounds/choosePc/chooseObiwan.mp3";
-					snd3.appendChild(src3);
-					snd3.play();
+					game.sound = "assets/sounds/choosePc/chooseObiwan.mp3";
+					game.sounds.current(game.sound);	
 				},
 				"yoda": function () {	
-					var snd3  = new Audio();
-					var src3  = document.createElement("source");
-					src3.type = "audio/mpeg";
-					src3.src  = "assets/sounds/choosePc/chooseYoda.mp3";
+					game.sound = "assets/sounds/choosePc/chooseYoda.mp3";
 					snd3.appendChild(src3);
 					snd3.play();
 				},
 				"sid": function (){	
-					var snd3  = new Audio();
-					var src3  = document.createElement("source");
-					src3.type = "audio/mpeg";
-					src3.src  = "assets/sounds/choosePc/chooseSid.mp3";
-					snd3.appendChild(src3);
-					snd3.play();
+					game.sound = "assets/sounds/choosePc/chooseSid.mp3";
+					game.sounds.current(game.sound);
 				},
 				"vad": function () {	
-					var snd3  = new Audio();
-					var src3  = document.createElement("source");
-					src3.type = "audio/mpeg";
-					src3.src  = "assets/sounds/choosePc/chooseVader.mp3";
-					snd3.appendChild(src3);
-					snd3.play();
+					game.sound = "assets/sounds/choosePc/chooseVader.mp3";
+					game.sounds.current(game.sound);
 				},
 				"maul": function () {	
-					var snd3  = new Audio();
-					var src3  = document.createElement("source");
-					src3.type = "audio/mpeg";
-					src3.src  = "assets/sounds/choosePc/chooseMaul.mp3";
-					snd3.appendChild(src3);
-					snd3.play();
+					game.sound = "assets/sounds/choosePc/chooseMaul.mp3";
+					game.sounds.current(game.sound);
 				},			
 			},
 			//plays when npc is selected, dependent on who pc is
 			"npcSky": {
 				"sid": function () {	
-					var snd4  = new Audio();
-					var src4  = document.createElement("source");
-					src4.type = "audio/mpeg";
-					src4.src  = "assets/sounds/npcLuke/pcSidNpcLuke.mp3"
-					snd4.appendChild(src4);
-					snd4.play();
+					game.sound = "assets/sounds/npcLuke/pcSidNpcLuke.mp3"
+					game.sounds.current(game.sound);
 				},			
 				"vad": function () {	
-					var snd4  = new Audio();
-					var src4  = document.createElement("source");
-					src4.type = "audio/mpeg";
-					src4.src  = "assets/sounds/npcLuke/pcVaderNpcLuke.mp3"
-					snd4.appendChild(src4);
-					snd4.play();
+					game.sound = "assets/sounds/npcLuke/pcVaderNpcLuke.mp3"
+					game.sounds.current(game.sound);
 				},			
 				"maul": function () {	
-					var snd4  = new Audio();
-					var src4  = document.createElement("source");
-					src4.type = "audio/mpeg";
-					src4.src  = "assets/sounds/npcLuke/pcMaulNpcLuke.mp3"
-					snd4.appendChild(src4);
-					snd4.play();
+					game.sound = "assets/sounds/npcLuke/pcMaulNpcLuke.mp3"
+					game.sounds.current(game.sound);
 				},			
 			},
 			"npcKen": {
 				"sid": function () {	
-					var snd5  = new Audio();
-					var src5  = document.createElement("source");
-					src5.type = "audio/mpeg";
-					src5.src  = "assets/sounds/npcObiwan/pcSidNpcObiwan.mp3"
-					snd5.appendChild(src5);
-					snd5.play();
+					game.sound = "assets/sounds/npcObiwan/pcSidNpcObiwan.mp3"
+					game.sounds.current(game.sound);
 				},			
 				"vad": function () {	
-					var snd5  = new Audio();
-					var src5  = document.createElement("source");
-					src5.type = "audio/mpeg";
-					src5.src  = "assets/sounds/npcObiwan/pcVaderNpcObiwan.mp3"
-					snd5.appendChild(src5);
-					snd5.play();
+					game.sound = "assets/sounds/npcObiwan/pcVaderNpcObiwan.mp3"
+					game.sounds.current(game.sound);
 				},			
 				"maul":function () {	
-					var snd5  = new Audio();
-					var src5  = document.createElement("source");
-					src5.type = "audio/mpeg";
-					src5.src  = "assets/sounds/npcObiwan/pcMaulNpcObiwan.mp3"
-					snd5.appendChild(src5);
-					snd5.play();
+					game.sound = "assets/sounds/npcObiwan/pcMaulNpcObiwan.mp3"
+					game.sounds.current(game.sound);
 				},			
 			},
 			"npcYoda": {
 				"sid": function () {	
-					var snd6  = new Audio();
-					var src6  = document.createElement("source");
-					src6.type = "audio/mpeg";
-					src6.src  = "assets/sounds/npcYoda/pcSidNpcYoda.mp3"
-					snd6.appendChild(src6);
-					snd6.play();
+					game.sound  = "assets/sounds/npcYoda/pcSidNpcYoda.mp3"
+					game.sounds.current(game.sound);
 				},			
 				"vad": function () {	
-					var snd6  = new Audio();
-					var src6  = document.createElement("source");
-					src6.type = "audio/mpeg";
-					src6.src  = "assets/sounds/npcYoda/pcVaderNpcYoda.mp3"
-					snd6.appendChild(src6);
-					snd6.play();
+					game.sound  = "assets/sounds/npcYoda/pcVaderNpcYoda.mp3"
+					game.sounds.current(game.sound);
 				},			
 				"maul":function () {	
-					var snd6  = new Audio();
-					var src6  = document.createElement("source");
-					src6.type = "audio/mpeg";
-					src6.src  = "assets/sounds/npcYoda/pcMaulNpcYoda.mp3"
-					snd6.appendChild(src6);
-					snd6.play();
+					game.sound  = "assets/sounds/npcYoda/pcMaulNpcYoda.mp3"
+					game.sounds.current(game.sound);
 				},	
 			},		
 			"npcSid": {
 				"sky": function () {	
-					var snd7  = new Audio();
-					var src7  = document.createElement("source");
-					src7.type = "audio/mpeg";
-					src7.src  = "assets/sounds/npcSid/pcLukeNpcSid.mp3"
-					snd7.appendChild(src7);
-					snd7.play();
+					game.sound  = "assets/sounds/npcSid/pcLukeNpcSid.mp3"
+					game.sounds.current(game.sound);
 				},
 				"ken": function () {	
-					var snd7  = new Audio();
-					var src7  = document.createElement("source");
-					src7.type = "audio/mpeg";
-					src7.src  = "assets/sounds/npcSid/pcObiwanNpcSid.mp3"
-					snd7.appendChild(src7);
-					snd7.play();
+					game.sound  = "assets/sounds/npcSid/pcObiwanNpcSid.mp3"
+					game.sounds.current(game.sound);
 				},
 				"yoda": function () {	
-					var snd7  = new Audio();
-					var src7  = document.createElement("source");
-					src7.type = "audio/mpeg";
-					src7.src  = "assets/sounds/npcSid/pcYodaNpcSid.mp3"
-					snd7.appendChild(src7);
-					snd7.play();
+					game.sound  = "assets/sounds/npcSid/pcYodaNpcSid.mp3"
+					game.sounds.current(game.sound);
 				},
 			},
 			"npcMaul": {
 				"sky": function () {	
-					var snd8  = new Audio();
-					var src8  = document.createElement("source");
-					src8.type = "audio/mpeg";
-					src8.src  = "assets/sounds/npcMaul/pcLukeNpcMaul.mp3"
-					snd8.appendChild(src8);
-					snd8.play();
+					game.sound  = "assets/sounds/npcMaul/pcLukeNpcMaul.mp3"
+					game.sounds.current(game.sound);
 				},
 				"ken": function () {	
-					var snd8  = new Audio();
-					var src8  = document.createElement("source");
-					src8.type = "audio/mpeg";
-					src8.src  = "assets/sounds/npcMaul/pcObiwanNpcMaul.mp3"
-					snd8.appendChild(src8);
-					snd8.play();
+					game.sound  = "assets/sounds/npcMaul/pcObiwanNpcMaul.mp3"
+					game.sounds.current(game.sound);
 				},
 				"yoda": function () {	
-					var snd8  = new Audio();
-					var src8  = document.createElement("source");
-					src8.type = "audio/mpeg";
-					src8.src  = "assets/sounds/npcMaul/pcYodaNpcMaul.mp3"
-					snd8.appendChild(src8);
-					snd8.play();
+					game.sound  = "assets/sounds/npcMaul/pcYodaNpcMaul.mp3"
+					game.sounds.current(game.sound);
 				},
 			},
 			"npcVad" : {
 				"sky": function () {	
-					var snd9  = new Audio();
-					var src9  = document.createElement("source");
-					src9.type = "audio/mpeg";
-					src9.src  = "assets/sounds/npcVader/pcLukeNpcVader.mp3"
-					snd9.appendChild(src9);
-					snd9.play();
+					game.sound  = "assets/sounds/npcVader/pcLukeNpcVader.mp3"
+					game.sounds.current(game.sound);
 				},
 				"ken": function () {	
-					var snd9  = new Audio();
-					var src9  = document.createElement("source");
-					src9.type = "audio/mpeg";
-					src9.src  = "assets/sounds/npcVader/pcObiwanNpcVader.mp3"
-					snd9.appendChild(src9);
-					snd9.play();
+					game.sound  = "assets/sounds/npcVader/pcObiwanNpcVader.mp3"
+					game.sounds.current(game.sound);
 				},
 				"yoda": function () {	
-					var snd9  = new Audio();
-					var src9  = document.createElement("source");
-					src9.type = "audio/mpeg";
-					src9.src  = "assets/sounds/npcVader/pcYodaNpcVader.mp3"
-					snd9.appendChild(src9);
-					snd9.play();
+					game.sound  = "assets/sounds/npcVader/pcYodaNpcVader.mp3"
+					game.sounds.current(game.sound);
 				},
 			},
 			"win" :{
 				"jedi": function () {	
-					var snd10  = new Audio();
-					var src10  = document.createElement("source");
-					src10.type = "audio/mpeg";
-					src10.src  = "assets/sounds/win/jediWin.mp3"
-					snd10.appendChild(src10);
-					snd10.play();
+					game.sound = "assets/sounds/win/jediWin.mp3"
+					game.sounds.current(game.sound);
 				},
 				"sith": function () {	
-					var snd10  = new Audio();
-					var src10  = document.createElement("source");
-					src10.type = "audio/mpeg";
-					src10.src  = "assets/sounds/win/sithWin.mp3"
-					snd10.appendChild(src10);
-					snd10.play();
+					game.sound = "assets/sounds/win/sithWin.mp3"
+					game.sounds.current(game.sound);
 				},
 			},
 			"loss" :{
 				"jediLoss": function () {	
 					if (!game.soundPlayed) {
-						var snd11  = new Audio();
-						var src11  = document.createElement("source");
-						src11.type = "audio/mpeg";
-						src11.src  = "assets/sounds/loss/jediLoss.mp3"
-						snd11.appendChild(src11);
-						snd11.play();
+						game.sound  = "assets/sounds/loss/jediLoss.mp3"
+						game.sounds.current(game.sound);
 						game.soundPlayed = true;
 					}
 				},
 				"sithLoss": function () {	
 					if (!game.soundPlayed) {
-						var snd11  = new Audio();
-						var src11  = document.createElement("source");
-						src11.type = "audio/mpeg";
-						src11.src  = "assets/sounds/loss/sithLoss.mp3"
-						snd11.appendChild(src11);
-						snd11.play();
+						game.sound  = "assets/sounds/loss/sithLoss.mp3"
+						game.sounds.current(game.sound);
 						game.soundPlayed = true;
 					}
 				},
@@ -414,7 +304,7 @@ $( document ).ready(function() {
 			};
 			$("#sky").click(function() {
 				if ($("#sky").hasClass("box1")) {
-					$("#sky").detach().prependTo("#pcDis").removeClass("box1").addClass("box2");
+					 $("#sky").detach().prependTo("#pcDis").removeClass("box1").addClass("box2");
 					game.pc = game.luke;
 					choosePc();
 					game.sounds.choosePc.sky();
