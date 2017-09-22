@@ -2,7 +2,7 @@ $( document ).ready(function() {
 	var game = {
 		// characters
 		"obiwan": {
-			"name": "Obiwan Kenobi",
+			"name": "Obi-Wan Kenobi",
 			"health":120,
 			"attack":8,
 			"counter":16,
@@ -37,15 +37,21 @@ $( document ).ready(function() {
 			"attack":15,
 			"counter":5,
 		},
+		//variables to track the increasing pc damage
 		"previousAttack": 0,
 		"currentAttack": 0,
+		//Variables to track who is pc and who is current NPC
 		"pc": "",
 		"npc":"",
+		//variables that track when the pc has been choosen and if an npc that is still alive has been choosen
 		"hasChoosenPC":false,
 		"hasChoosenNPC":false,
 		"winCounter": 0,
+		//variable that keeps track of side choosen
 		"jedi": undefined,
+		//Keeps loss sound played from happening over and over again
 		"soundPlayed": false,
+		//Game sounds
 		"sounds": {
 			"lightSaber": {
 				"fight": function () {	
@@ -65,6 +71,7 @@ $( document ).ready(function() {
 					snd2.play();
 				},
 			},
+			//Plays when PC is selected
 			"choosePc": { 
 				"sky":  function () {	
 					var snd3  = new Audio();
@@ -115,6 +122,7 @@ $( document ).ready(function() {
 					snd3.play();
 				},			
 			},
+			//plays when npc is selected, dependent on who pc is
 			"npcSky": {
 				"sid": function () {	
 					var snd4  = new Audio();
@@ -315,6 +323,25 @@ $( document ).ready(function() {
 			},
 
 		},
+		//The button hide the intro and go to the game
+		"skipIntro": function() {
+			$("#skipIntro").on("click", function() {
+				$("#introArea").detach();
+				$("#mainGame").removeClass("hidden");
+				$("body").css("background-image","url(assets/images/background.png)");
+				
+			});
+		},
+		//At the end of the video, the game begins
+		"endIntro":function () {
+			var end = $("#video");
+			end.on('ended',function (){
+				$("#introArea").detach();
+				$("#mainGame").removeClass("hidden");
+				$("body").css("background-image","url(assets/images/background.png)");		
+			});
+		},
+		//Allows user to choose Sith or Jedi, hides choices and reveals characters
 		"chooseSide": function() {
 			$("#jedi").click(function() {
 				$("#sky").removeClass("hidden");
@@ -351,7 +378,7 @@ $( document ).ready(function() {
 			$(".yodaLifeDis").text(game.yoda.health);
 			$(".vaderLifeDis").text(game.vader.health);
 		},
-		// function that runs to choose side, character, and opponent 
+		// function that runs to choose character and opponent 
 		"attacker": function() {		
 				//character selection
 			var choosePc = function () {
@@ -505,10 +532,7 @@ $( document ).ready(function() {
 		"fight": function() {
 			$("#attackButton").click(function() {
 				if (game.hasChoosenNPC) {
-					var random = Math.floor(Math.random()*2)
-					if (random === 0) {
-						game.sounds.lightSaber.fight();
-					}
+					game.sounds.lightSaber.fight();
 					game.currentAttack = game.pc.attack + game.previousAttack;
 					game.previousAttack = game.currentAttack;
 					if(game.pc.health > 0 && game.npc.health > 0) {
@@ -516,7 +540,7 @@ $( document ).ready(function() {
 						if(game.npc.health > 0) {
 							game.pc.health = game.pc.health - game.npc.counter;
 						}
-						$("#gameText").html("You attacked " + game.npc.name + "for <span class='red'>" + game.currentAttack + "</span> damage. <br>" + game.npc.name + "" + "attacks you back for <span class= 'red'> " + game.npc.counter + "</span> damage.");
+						$("#gameText").html("You attacked " + " " + game.npc.name + " " + "for " +  "<span class='red'>" + game.currentAttack + "</span> damage. <br>" + game.npc.name + " " + "attacks you back for <span class= 'red'> " + game.npc.counter + "</span> damage.");
 						$(".sidiousLifeDis").text(game.sidious.health);
 						$(".lukeLifeDis").text(game.luke.health);
 						$(".maulLifeDis").text(game.maul.health);
@@ -638,6 +662,9 @@ $( document ).ready(function() {
 
 		},
 	}
+	// functions that start intro, game, and buttons
+	game.skipIntro();
+	game.endIntro();
 	game.chooseSide();
 	game.attacker();
 	game.fight();
